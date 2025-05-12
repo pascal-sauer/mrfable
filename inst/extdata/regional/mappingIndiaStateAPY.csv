@@ -1,0 +1,38 @@
+state,State Name,Country,Region,Zonal Council
+Andaman,Andaman and Nicobar Islands,IND,ANI,SZC
+Andhra,Andhra Pradesh,IND,ANP,SZC
+Arunachal,Arunachal Pradesh,IND,ARP,NEC
+Assam,Assam,IND,ASM,NEC
+Bihar,Bihar,IND,BIH,EZC
+Chandigarh,Chandigarh,IND,CHD,NZC
+Chhattisgarh,Chhattisgarh,IND,CHT,CZC
+Dadra,Dadra and Nagar Haveli,IND,DNH,WZC
+Daman,Daman and Diu,IND,DND,WZC
+Delhi,Delhi,IND,DEL,NZC
+Goa,Goa,IND,GOA,WZC
+Gujarat,Gujarat,IND,GUJ,WZC
+Haryana,Haryana,IND,HAR,NZC
+Himachal,Himachal Pradesh,IND,HIP,NZC
+Jammu,Jammu & Kashmir,IND,JNK,NZC
+Jharkhand,Jharkhand,IND,JHK,EZC
+Karnataka,Karnataka,IND,KAR,SZC
+Kerala,Kerala,IND,KER,SZC
+Ladakh,Ladakh,IND,LAD,NZC
+Lakshadweep,Lakshadweep,IND,LAK,SZC
+Madhya,Madhya Pradesh,IND,MDP,CZC
+Maharashtra,Maharashtra,IND,MAH,WZC
+Manipur,Manipur,IND,MAN,NEC
+Meghalaya,Meghalaya,IND,MEG,NEC
+Mizoram,Mizoram,IND,MIZ,NEC
+Nagaland,Nagaland,IND,NAG,NEC
+Odisha,Odisha,IND,ORI,EZC
+Puducherry,Puducherry,IND,PUD,SZC
+Punjab,Punjab,IND,PUN,NZC
+Rajasthan,Rajasthan,IND,RAJ,NZC
+Sikkim,Sikkim,IND,SIK,NEC
+Tamil,Tamil Nadu,IND,TND,SZC
+Telangana,Telangana,IND,TEL,SZC
+Tripura,Tripura,IND,TRI,NEC
+Uttar,Uttar Pradesh,IND,UTP,NZC
+Uttarakhand,Uttarakhand,IND,UTK,NZC
+West,West Bengal,IND,WEB,EZC
