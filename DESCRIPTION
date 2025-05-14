@@ -16,6 +16,7 @@ Imports:
     dplyr,
     magclass,
     readxl,
+    readr,
     tidyr,
     utils
 Suggests: 
