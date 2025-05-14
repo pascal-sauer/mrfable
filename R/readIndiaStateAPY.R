@@ -1,8 +1,21 @@
+#' @title readIndiaStateAPY
+#' This function reads foodcrops data for India downloaded from:
+#'  UPAg - Unified Portal for Agricultural Statistics by  Department of Agriculture & Farmers Welfare
+#' @author Ankit Saha
+#' @param subtype Area, Yield, or Production
+#' @importFrom readr read_csv show_col_types
+#' @importFrom tidyr pivot_longer gsub
+#' @importFrom dplyr filter %>% select mutate bind_rows everything
+#' @importFrom magclass as.magpie
+#' @examples
+#' \dontrun{ a <- madrat::readSource(type="IndiaAPY",subtype="Rice",convert="onlycorrect") }
+#' @return magpie object containing Area, Yield, and Production data.
 
-library(dplyr)
-library(tidyr)
-library(readr)
-library(magclass)
+
+#library(dplyr)
+#library(tidyr)
+#library(readr)
+#library(magclass)
 
 
 ##setwd("W:/PIK R/inputdata/sources/IndiaStateAPY") ## For local runs
@@ -25,7 +38,7 @@ readIndiaStateAPY <- function() {
     state <- sub("-.*", "", basename(file))
 
     # Read CSV
-    x <- read_csv(file, show_col_types = FALSE)
+    x <- readr::read_csv(file, show_col_types = FALSE)
 
     # Clean column names by removing trailing '-XX'
     colnames(x) <- gsub("-\\d{2}$", "", colnames(x))
@@ -33,7 +46,7 @@ readIndiaStateAPY <- function() {
     # Convert to long format, drop Season, pivot columns to variables and years
     x <- x %>%
       select(-Season) %>%                # Remove Season if present
-      pivot_longer(
+      tidyr::pivot_longer(
         cols = -Crop,
         names_to = c(".value", "Year"),
         names_sep = "-"

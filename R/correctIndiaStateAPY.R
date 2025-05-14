@@ -1,17 +1,34 @@
-library(dplyr)
-library(magclass)
-library(tidyr)
+#' @title correctIndiaStateAPY
+#' @description Correct IndiaStateAPY data
+#' @param x magpie object provided by the read function
+#' @return magpie objects with corrected IndiaStateAPY data
+#' @author Ankit Saha
+#' @examples
+#' \dontrun{
+#' readSource("IndiaAPY", convert = "onlycorrect")
+#' }
+#'
+#' @importFrom magclass as.magpie as.data.frame
+#' @importFrom utils read.csv
+#' @importFrom madrat toolCountryFill
+#' @importFrom dplyr  %>% select() filter() mutate() rename() case_when()
+#' @importFrom tidyr replace_na()
+
+
+##library(dplyr)
+##library(magclass)
+##library(tidyr)
 
 # Function to correct India State APY magpie data
 correctIndiaStateAPY <- function(x) {
   # Convert magpie object to data frame
   x <- as.data.frame(x) %>%
     select(-"Cell") %>%
-    mutate(Value = replace_na(Value, 0))  # Convert NA values to 0
+    mutate(Value = tidyr::replace_na(Value, 0))  # Convert NA values to 0
 
   # Rename columns to match desired names
   x <- x %>%
-    rename(
+    dplyr::rename(
       state = Region,
       year = Year,
       crop = Data1,
@@ -35,7 +52,7 @@ correctIndiaStateAPY <- function(x) {
   # Convert production from bales to 1000t for specific crops
   # Apply only where variable == "Production"
   x <- x %>%
-    mutate(value = case_when(
+    mutate(value = dplyr::case_when(
       variable == "Production" & crop == "Cotton" ~ value * 0.17,
       variable == "Production" & crop %in% c("Jute", "Sannhemp", "Mesta") ~ value * 0.18,
       TRUE ~ value
@@ -45,11 +62,11 @@ correctIndiaStateAPY <- function(x) {
   x <- as.magpie(x, spatial = "state")
 
   # Mapping the states within India
-  ## mapping <- read.csv(system.file("extdata", "regional/mappingIndiaStateAPY.csv", package = "mrfable"))
-  ## x <- toolCountryFill(x, countrylist = as.vector(mapping[, "state"]))
+   mapping <- read.csv(system.file("extdata", "regional/mappingIndiaStateAPY.csv", package = "mrfable"))
+   x <- toolCountryFill(x, countrylist = as.vector(mapping[, "state"]))
 
 
   return(x)
 }
-n <- correctIndiaStateAPY(m)
-str(n)
+##n <- correctIndiaStateAPY(m)
+##str(n)
