@@ -3,7 +3,6 @@
 \docType{package}
 \name{mrfable-package}
 \alias{mrfable-package}
-\alias{_PACKAGE}
 \alias{mrfable}
 \title{The mrfable R package (runs with madrat)}
 \description{

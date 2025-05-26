@@ -25,7 +25,7 @@
 calcIndiaStateFoodcrop <- function(subtype = "Area") {
 
   # Validate input subtype
-  if (!subtype %in% c("Area", "Yield", "Production")) {
+  if (!"Area" %in% c("Area", "Yield", "Production")) {
     stop("choose a valid subtype")
   }
 
@@ -46,8 +46,26 @@ calcIndiaStateFoodcrop <- function(subtype = "Area") {
     weight[is.na(weight)] <- 0
   }
 
-  # Replace any remaining NAs in x with zero
-  x[is.na(x)] <- 0
+  # Define the mapping of crops in the APY database to magpie crops
+  mappingCropsAPY <- as.matrix(data.frame(
+    APYcrop = c(
+      "Rice", "Wheat", "Maize", "Barley", "Jowar", "Bajra",
+      "Ragi", "Small Millets", "Tur", "Gram", "Urad", "Moong",
+      "Lentil", "Other Pulses", "Groundnut", "Castorseed",
+      "Sesamum", "Nigerseed", "Soybean", "Sunflower",
+      "Rapeseed & Mustard", "Linseed", "Safflower", "Sugarcane", "Cotton"
+    ),
+    k = c(
+      "rice_pro", "tece", "maiz", "tece", "trce", "trce",
+      "trce", "trce", "puls_pro", "puls_pro", "puls_pro", "puls_pro",
+      "puls_pro", "puls_pro", "groundnut", "rapeseed",
+      "rapeseed", "rapeseed", "soybean", "sunflower",
+      "rapeseed", "rapeseed", "rapeseed", "sugr_cane", "fibres"
+    )
+  ))
+
+  # Aggregate the data to magpie crops
+  x <- toolAggregate(x, rel = mappingCropsAPY, from = "APYcrop", to = "k", dim = 3.1)
 
   # Return a list with the requested subtype data and auxiliary info
   return(list(
@@ -62,3 +80,4 @@ calcIndiaStateFoodcrop <- function(subtype = "Area") {
   ))
 }
 
+aa <- calcIndiaStateFoodcrop()
