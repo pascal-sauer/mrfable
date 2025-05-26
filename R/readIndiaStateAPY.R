@@ -2,9 +2,8 @@
 #' This function reads foodcrops data for India downloaded from:
 #'  UPAg - Unified Portal for Agricultural Statistics by  Department of Agriculture & Farmers Welfare
 #' @author Ankit Saha
-#' @param subtype Area, Yield, or Production
-#' @importFrom readr read_csv show_col_types
-#' @importFrom tidyr pivot_longer gsub
+#' @importFrom readr read_csv
+#' @importFrom tidyr pivot_longer
 #' @importFrom dplyr filter %>% select mutate bind_rows everything
 #' @importFrom magclass as.magpie
 #' @examples
@@ -33,27 +32,32 @@ readIndiaStateAPY <- function() {
   }
 
   # Function to read and reshape individual CSV files
-  a <- function(file) {
+  .reshapeCSV <- function(file) {
+
+    # Declare variables to suppress R CMD check notes
+    Year <- NULL
+
     # Extract state from the filename (portion before first '-')
     state <- sub("-.*", "", basename(file))
 
     # Read CSV
-    x <- readr::read_csv(file, show_col_types = FALSE)
+    x <- read_csv(file, show_col_types = FALSE)
 
     # Clean column names by removing trailing '-XX'
     colnames(x) <- gsub("-\\d{2}$", "", colnames(x))
 
     # Convert to long format, drop Season, pivot columns to variables and years
     x <- x %>%
-      select(-Season) %>%                # Remove Season if present
-      tidyr::pivot_longer(
-        cols = -Crop,
+      select(-"Season") %>%                # Remove Season if present
+      pivot_longer(
+        cols = -"Crop",
         names_to = c(".value", "Year"),
         names_sep = "-"
       ) %>%
       mutate(
         state = state,                  # Add state column
-        Year = as.numeric(sub(".*-", "", Year)) + 1  # Parse year and adjust
+        #Year = as.numeric(sub(".*-", "", x$Year)) + 1  # Parse year and adjust
+        Year = as.numeric(Year) + 1
       ) %>%
       select(state, everything())       # Move state to first column
 
@@ -61,7 +65,7 @@ readIndiaStateAPY <- function() {
   }
 
   # Read, process, and merge all CSV files into a single dataframe
-  out <- bind_rows(lapply(l, a))
+  out <- bind_rows(lapply(l, .reshapeCSV))
 
   # Convert merged dataframe to magpie object with spatial key 'state'
   out <- as.magpie(out, spatial = "state")
@@ -70,4 +74,5 @@ readIndiaStateAPY <- function() {
 }
 
 ## m <- readIndiaStateAPY() ## To test output
+
 
