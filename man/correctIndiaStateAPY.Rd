@@ -17,7 +17,7 @@ Correct IndiaStateAPY data
 }
 \examples{
 \dontrun{
-readSource("IndiaAPY", convert = "onlycorrect")
+readSource("IndiaStateAPY", convert = "onlycorrect")
 }
 
 }

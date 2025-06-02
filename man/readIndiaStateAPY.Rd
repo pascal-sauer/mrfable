@@ -2,9 +2,7 @@
 % Please edit documentation in R/readIndiaStateAPY.R
 \name{readIndiaStateAPY}
 \alias{readIndiaStateAPY}
-\title{readIndiaStateAPY
-This function reads foodcrops data for India downloaded from:
- UPAg - Unified Portal for Agricultural Statistics by  Department of Agriculture & Farmers Welfare}
+\title{readIndiaStateAPY}
 \usage{
 readIndiaStateAPY()
 }
@@ -12,12 +10,12 @@ readIndiaStateAPY()
 magpie object containing Area, Yield, and Production data.
 }
 \description{
-readIndiaStateAPY
 This function reads foodcrops data for India downloaded from:
  UPAg - Unified Portal for Agricultural Statistics by  Department of Agriculture & Farmers Welfare
+ https://upag.gov.in/dash-reports/stateprofile?rtab=State+Profile%3A+Crop-wise+APY&rtype=reports
 }
 \examples{
-\dontrun{ a <- madrat::readSource(type="IndiaAPY",subtype="Rice",convert="onlycorrect") }
+\dontrun{ a <- madrat::readSource(type="IndiaStateAPY",subtype="Rice",convert="onlycorrect") }
 }
 \author{
 Ankit Saha

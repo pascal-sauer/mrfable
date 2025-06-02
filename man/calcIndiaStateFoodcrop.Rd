@@ -2,9 +2,7 @@
 % Please edit documentation in R/calcIndiaStateFoodcrop.R
 \name{calcIndiaStateFoodcrop}
 \alias{calcIndiaStateFoodcrop}
-\title{calcIndiaStateFoodcrop
-Calculates foodcrops data for India downloaded from:
- UPAg - Unified Portal for Agricultural Statistics by  Department of Agriculture & Farmers Welfare}
+\title{calcIndiaStateFoodcrop}
 \usage{
 calcIndiaStateFoodcrop(subtype = "Area")
 }
@@ -15,13 +13,13 @@ calcIndiaStateFoodcrop(subtype = "Area")
 magpie object containing Area, Yield, and Production data.
 }
 \description{
-calcIndiaStateFoodcrop
 Calculates foodcrops data for India downloaded from:
  UPAg - Unified Portal for Agricultural Statistics by  Department of Agriculture & Farmers Welfare
+ https://upag.gov.in/dash-reports/stateprofile?rtab=State+Profile%3A+Crop-wise+APY&rtype=reports
 }
 \examples{
 \dontrun{
-a <- madrat::calcOutput("IndiaFoodcrop", subtype = "Area")
+a <- madrat::calcOutput("IndiaStateFoodcrop", subtype = "Area")
 }
 }
 \author{
