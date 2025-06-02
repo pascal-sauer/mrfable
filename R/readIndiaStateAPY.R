@@ -1,26 +1,17 @@
-#' @title readIndiaStateAPY
+#' readIndiaStateAPY
+#'
 #' This function reads foodcrops data for India downloaded from:
 #'  UPAg - Unified Portal for Agricultural Statistics by  Department of Agriculture & Farmers Welfare
+#'  https://upag.gov.in/dash-reports/stateprofile?rtab=State+Profile%3A+Crop-wise+APY&rtype=reports
 #' @author Ankit Saha
 #' @importFrom readr read_csv
 #' @importFrom tidyr pivot_longer
 #' @importFrom dplyr filter %>% select mutate bind_rows everything
 #' @importFrom magclass as.magpie
 #' @examples
-#' \dontrun{ a <- madrat::readSource(type="IndiaAPY",subtype="Rice",convert="onlycorrect") }
+#' \dontrun{ a <- madrat::readSource(type="IndiaStateAPY",subtype="Rice",convert="onlycorrect") }
 #' @return magpie object containing Area, Yield, and Production data.
 
-
-#library(dplyr)
-#library(tidyr)
-#library(readr)
-#library(magclass)
-
-
-##setwd("W:/PIK R/inputdata/sources/IndiaStateAPY") ## For local runs
-
-# Function to read and merge CSV files from current working directory (set by user),
-# then convert the merged dataframe to a magpie object
 
 readIndiaStateAPY <- function() {
 
@@ -73,6 +64,5 @@ readIndiaStateAPY <- function() {
   return(out)
 }
 
-## m <- readIndiaStateAPY() ## To test output
 
 

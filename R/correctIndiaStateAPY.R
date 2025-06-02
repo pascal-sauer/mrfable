@@ -5,7 +5,7 @@
 #' @author Ankit Saha
 #' @examples
 #' \dontrun{
-#' readSource("IndiaAPY", convert = "onlycorrect")
+#' readSource("IndiaStateAPY", convert = "onlycorrect")
 #' }
 #'
 #' @importFrom magclass as.magpie as.data.frame
@@ -13,11 +13,6 @@
 #' @importFrom madrat toolCountryFill
 #' @importFrom dplyr  %>% select filter mutate rename case_when
 #' @importFrom tidyr replace_na
-
-
-##library(dplyr)
-##library(magclass)
-##library(tidyr)
 
 # Function to correct India State APY magpie data
 correctIndiaStateAPY <- function(x) {
@@ -81,16 +76,6 @@ correctIndiaStateAPY <- function(x) {
       TRUE ~ value
     ))
 
-  # Add a new column for units based on the variable
-  #x <- x %>%
-    #mutate(unit = case_when(
-     #variable == "Area" ~ "1000ha",
-     #variable == "Production" ~ "1000t",
-     #variable == "Yield" ~ "kg/ha",
-     #TRUE ~ NA_character_  # Assign NA for any other cases
-    #))
-
-  # Important: For as.magpie to interpret the cell data from 'value' column,
   # rename 'value' to '.value' before conversion.
   # This is the convention that magclass uses, to distinguish data column from dimension columns.
 
@@ -107,5 +92,4 @@ correctIndiaStateAPY <- function(x) {
 
   return(x)
 }
-##n <- correctIndiaStateAPY(m)
-##str(n)
+

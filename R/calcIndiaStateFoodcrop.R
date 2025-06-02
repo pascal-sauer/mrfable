@@ -1,26 +1,18 @@
-#' @title calcIndiaStateFoodcrop
+#' calcIndiaStateFoodcrop
+#'
 #' Calculates foodcrops data for India downloaded from:
 #'  UPAg - Unified Portal for Agricultural Statistics by  Department of Agriculture & Farmers Welfare
+#'  https://upag.gov.in/dash-reports/stateprofile?rtab=State+Profile%3A+Crop-wise+APY&rtype=reports
 #' @author Ankit Saha
 #' @param subtype Area, Yield, or Production
 #' @importFrom madrat readSource
 #' @importFrom magclass collapseNames
 #' @examples
 #' \dontrun{
-#' a <- madrat::calcOutput("IndiaFoodcrop", subtype = "Area")
+#' a <- madrat::calcOutput("IndiaStateFoodcrop", subtype = "Area")
 #' }
 #' @return magpie object containing Area, Yield, and Production data.
 
-
-
-
-#setwd("W:/PIK R/inputdata/sources/IndiaStateAPY")
-
-
-
-#library(dplyr)
-#library(magclass)
-#library(tidyr)
 
 calcIndiaStateFoodcrop <- function(subtype = "Area") {
 
@@ -80,4 +72,3 @@ calcIndiaStateFoodcrop <- function(subtype = "Area") {
   ))
 }
 
-aa <- calcIndiaStateFoodcrop()
