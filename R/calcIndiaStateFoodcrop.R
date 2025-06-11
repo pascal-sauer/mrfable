@@ -26,18 +26,6 @@ calcIndiaStateFoodcrop <- function(subtype = "Area") {
 
   weight <- NULL
 
-  if (subtype == "Yield") {
-    weight <- x[, , "Area"]
-    # Avoid division by zero: set Production to 0 where Area is zero
-    x[, , "Production"][x[, , "Area"] == 0] <- 0
-    # Replace zeros in Area to a very small number to enable division
-    x[, , "Area"][x[, , "Area"] == 0] <- 10^-10
-    # Calculate yield as production per area scaled by 1000
-    x <- collapseNames(1000 * x[, , "Production"] / x[, , "Area"], preservedim = c(2,3))
-    # Replace NA in weight with zero
-    weight[is.na(weight)] <- 0
-  }
-
   # Define the mapping of crops in the APY database to magpie crops
   mappingCropsAPY <- as.matrix(data.frame(
     APYcrop = c(
@@ -58,6 +46,18 @@ calcIndiaStateFoodcrop <- function(subtype = "Area") {
 
   # Aggregate the data to magpie crops
   x <- toolAggregate(x, rel = mappingCropsAPY, from = "APYcrop", to = "k", dim = 3.1)
+
+  if (subtype == "Yield") {
+    weight <- x[, , "Area"]
+    # Avoid division by zero: set Production to 0 where Area is zero
+    x[, , "Production"][x[, , "Area"] == 0] <- 0
+    # Replace zeros in Area to a very small number to enable division
+    x[, , "Area"][x[, , "Area"] == 0] <- 10^-10
+    # Calculate yield as production per area scaled by 1000
+    x <- collapseNames(1000 * x[, , "Production"] / x[, , "Area"], preservedim = c(2,3))
+    # Replace NA in weight with zero
+    weight[is.na(weight)] <- 0
+  }
 
   # Return a list with the requested subtype data and auxiliary info
   return(list(
