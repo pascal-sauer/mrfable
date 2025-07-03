@@ -40,7 +40,7 @@ calcIndiaStateFoodcrop <- function(subtype = "Area") {
       "trce", "trce", "puls_pro", "puls_pro", "puls_pro", "puls_pro",
       "puls_pro", "puls_pro", "groundnut", "rapeseed",
       "rapeseed", "rapeseed", "soybean", "sunflower",
-      "rapeseed", "rapeseed", "rapeseed", "sugr_cane", "fibres"
+      "rapeseed", "rapeseed", "rapeseed", "sugr_cane", "cottn_pro"
     )
   ))
 
