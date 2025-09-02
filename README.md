@@ -1,6 +1,6 @@
 # FABLE project data
 
-R package **mrfable**, version **1.6.3.9002**
+R package **mrfable**, version **1.7.1**
 
 [![CRAN status](https://www.r-pkg.org/badges/version/mrfable)](https://cran.r-project.org/package=mrfable) [![R build status](https://github.com/AnkitSaha07/mrfable/workflows/check/badge.svg)](https://github.com/AnkitSaha07/mrfable/actions) [![codecov](https://codecov.io/gh/AnkitSaha07/mrfable/branch/master/graph/badge.svg)](https://app.codecov.io/gh/AnkitSaha07/mrfable) [![r-universe](https://pik-piam.r-universe.dev/badges/mrfable)](https://pik-piam.r-universe.dev/builds)
 
@@ -42,22 +42,22 @@ vignette("mrfable") # India foodcrop data preparation with R
 
 ## Questions / Problems
 
-In case of questions / problems please contact Anastasis Giannousakis <giannou@pik-potsdam.de>.
+In case of questions / problems please contact Ankit Saha <ankitsa@pik-potsdam.de>.
 
 ## Citation
 
 To cite package **mrfable** in publications use:
 
-Giannousakis A (2025). "mrfable: FABLE project data." Version: 1.6.3.9002.
+Saha A (2025). "mrfable: FABLE project data." Version: 1.7.1.
 
 A BibTeX entry for LaTeX users is
 
  ```latex
 @Misc{,
   title = {mrfable: FABLE project data},
-  author = {Anastasis Giannousakis},
-  date = {2025-05-27},
+  author = {Ankit Saha},
+  date = {2025-09-02},
   year = {2025},
-  note = {Version: 1.6.3.9002},
+  note = {Version: 1.7.1},
 }
 ```
