@@ -1,12 +1,14 @@
 # FABLE project data
 
-R package **mrfable**, version **1.6.3**
+R package **mrfable**, version **1.7.1**
 
-[![CRAN status](https://www.r-pkg.org/badges/version/mrfable)](https://cran.r-project.org/package=mrfable)  [![R build status](https://github.com/giannou/mrfable/workflows/check/badge.svg)](https://github.com/giannou/mrfable/actions) [![codecov](https://codecov.io/gh/giannou/mrfable/branch/master/graph/badge.svg)](https://app.codecov.io/gh/giannou/mrfable) [![r-universe](https://pik-piam.r-universe.dev/badges/mrfable)](https://pik-piam.r-universe.dev/builds)
+[![CRAN status](https://www.r-pkg.org/badges/version/mrfable)](https://cran.r-project.org/package=mrfable) [![R build status](https://github.com/AnkitSaha07/mrfable/workflows/check/badge.svg)](https://github.com/AnkitSaha07/mrfable/actions) [![codecov](https://codecov.io/gh/AnkitSaha07/mrfable/branch/master/graph/badge.svg)](https://app.codecov.io/gh/AnkitSaha07/mrfable) [![r-universe](https://pik-piam.r-universe.dev/badges/mrfable)](https://pik-piam.r-universe.dev/builds)
 
 ## Purpose and Functionality
 
-Tool for easy downloading, cleaning, and sorting foodcrop data for India taken from here: https://eands.dacnet.nic.in/APY_96_To_07.htm .
+Tool for easy downloading, cleaning, and sorting foodcrop
+    Data downloaded from UPAg - Unified Portal for Agricultural Statistics by Department of Agriculture & Farmers Welfare. 
+    https://upag.gov.in/dash-reports/stateprofile?rtab=State+Profile%3A+Crop-wise+APY&rtype=reports .
 
 
 ## Installation
@@ -40,21 +42,22 @@ vignette("mrfable") # India foodcrop data preparation with R
 
 ## Questions / Problems
 
-In case of questions / problems please contact Anastasis Giannousakis <giannou@pik-potsdam.de>.
+In case of questions / problems please contact Ankit Saha <ankitsa@pik-potsdam.de>.
 
 ## Citation
 
 To cite package **mrfable** in publications use:
 
-Giannousakis A (2024). _mrfable: FABLE project data_. R package version 1.6.3.
+Saha A (2025). "mrfable: FABLE project data." Version: 1.7.1.
 
 A BibTeX entry for LaTeX users is
 
  ```latex
-@Manual{,
+@Misc{,
   title = {mrfable: FABLE project data},
-  author = {Anastasis Giannousakis},
-  year = {2024},
-  note = {R package version 1.6.3},
+  author = {Ankit Saha},
+  date = {2025-09-02},
+  year = {2025},
+  note = {Version: 1.7.1},
 }
 ```
